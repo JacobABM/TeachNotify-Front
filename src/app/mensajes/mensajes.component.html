@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<button mat-raised-button dark  *ngIf="visiblebtn" (click)="mostrarAgregar()">Agregar Grupo</button>
+<div class="row" *ngIf="visible">
+    <form [formGroup]="grupoform" (ngSubmit)="agregar()">
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre del Grupo</mat-label>
+            <input formControlName="Nombre_Grupo" matInput #input placeholder="Ex. Mecatronica"/>
+        </mat-form-field>
+        <button type="submit" mat-raised-button>Agregar Grupo</button>
+    </form>
+</div>
+<table mat-table [dataSource]="grupos" style="width: 100%;" class="mat-elevation-z8 demo-table">
+  <ng-container matColumnDef="Nombre del Grupo">
+    <th mat-header-cell *matHeaderCellDef> Nombre del Grupo </th>
+    <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Actions">
+    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+    <td mat-cell *matCellDef="let element">
+      <button *ngIf="!(visiblebtn)" mat-raised-button color="primary" (click)="verMensajesAlumno(element.id)">Ver mensajes</button>
+      <button *ngIf="visiblebtn" mat-raised-button color="primary" (click)="verMensajesProfesor(element.id)">Ver mensajes</button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<div>
+    <nav class="navbar navbar-dark bg-primary">
+        <img src="./assets/circle.png" width="95" height="95" class="d-inline-block align-top" alt="">
+        <a class="navbar-brand" [routerLink]="['/mensajes']">
+            Ver mis grupos
+        </a>
+        <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+    </nav>
+</div>

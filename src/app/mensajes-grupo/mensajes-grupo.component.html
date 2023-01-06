@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<form [formGroup]="mensajeForm" (ngSubmit)="agregar()">
+    <mat-form-field appearance="fill" *ngIf="visible">
+      <mat-label>Enviar Mensaje</mat-label>
+        <input formControlName="mensaje" matInput #input placeholder="Ex. Buenos dias jovenes">
+    </mat-form-field>
+    <button *ngIf="visible" type="submit" mat-raised-button>Enviar Mensaje</button>
+
+    <mat-card *ngFor="let mensaje of mensajes">
+        {{mensaje}}
+    </mat-card>
+</form>
